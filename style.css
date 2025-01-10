@@ -6,7 +6,6 @@ body {
 #mySidenav a {
   position: absolute;
   left: -90px;
-  height: ;
   transition: 0.3s;
   padding: 15px;
   width: 100px;
