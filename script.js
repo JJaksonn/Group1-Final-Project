@@ -15,7 +15,7 @@ document.getElementById("colorForm").addEventListener("submit", function(event) 
       const reader = new FileReader();
       reader.onload = function(e) {
         document.body.style.backgroundImage = `url(${e.target.result})`;
-        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundSize = "contain";
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundPosition = "center";
       };
