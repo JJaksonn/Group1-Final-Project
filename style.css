@@ -4,6 +4,22 @@ body
   top: 25%;;
   left: -10px;
 }
+
+#myNavbar
+{
+  background-color: #162a3b;
+}
+
+#myNavbar a
+{
+  color: #FFD166;
+}
+
+#myNavbar a:hover
+{
+  color: #D4A373;
+}
+
 #mySidenav
 {
   margin-top: 10%;
@@ -14,6 +30,7 @@ body
   top: 0;
   left: 0;
 }
+
 #mySidenav a
 {
   position: absolute;
