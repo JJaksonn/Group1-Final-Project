@@ -1,5 +1,6 @@
 body
 {
+  background-color: #87ceeb;
   position: fixed;
   top: 25%;;
   left: -10px;
@@ -8,6 +9,7 @@ body
 #myNavbar
 {
   background-color: #162a3b;
+  
 }
 
 #myNavbar a
