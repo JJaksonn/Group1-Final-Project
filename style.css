@@ -1,5 +1,6 @@
 body
 {
+  background-color: #87ceeb;
   position: fixed;
   top: 25%;;
   left: -10px;
@@ -8,6 +9,7 @@ body
 #myNavbar
 {
   background-color: #162a3b;
+  
 }
 
 #myNavbar a
@@ -34,7 +36,7 @@ body
 #mySidenav a
 {
   position: absolute;
-  left: -90px;
+  left: -80px;
   transition: 0.3s;
   padding: 15px;
   width: 100px;
