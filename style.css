@@ -1,9 +1,21 @@
-body {
+body
+{
   position: fixed;
   top: 25%;;
   left: -10px;
 }
-#mySidenav a {
+#mySidenav
+{
+  margin-top: 10%;
+  margin-bottom: 15%;
+  height: 70%;
+  width: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#mySidenav a
+{
   position: absolute;
   left: -90px;
   transition: 0.3s;
@@ -15,30 +27,36 @@ body {
   border-radius: 0 5px 5px 0;
 }
 
-#mySidenav a:hover {
+#mySidenav a:hover
+{
   left: 0;
 }
 
-#about {
+#timer
+{
   top: 50px;
   background-color: #223f57
 }
 
-#blog {
+#blog
+{
   top: 120px;
   background-color: #1d4769
 }
 
-#projects {
+#projects
+{
   top: 190px;
   background-color: 	#315b7d
 }
 
-#contact {
+#contact
+{
   top: 260px;
   background-color: #4f7696
 }
-#music {
+#music
+{
   top: 330px;
   background-color: #7d9cb6
 }
