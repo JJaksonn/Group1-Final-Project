@@ -7,8 +7,28 @@ document.getElementById("colorForm").addEventListener("submit", function(event) 
     $('#bgModal').modal('hide');
   });
 
-  // Background image picker
-  document.getElementById("imageForm").addEventListener("submit", function(event) {
+
+const fileInput = document.getElementById("imageUpload");
+const imageButton = document.getElementById("imageUploadButton");
+const fileNameDisplay = document.getElementById("fileNameDisplay");
+
+
+imageButton.addEventListener("click", function() {
+    fileInput.click();
+});
+
+
+fileInput.addEventListener("change", function() {
+    if (fileInput.files.length > 0) {
+        fileNameDisplay.textContent = fileInput.files[0].name;
+    } else {
+        fileNameDisplay.textContent = "No file chosen";
+    }
+});
+// all of the above code was just so I could make the image upload button look good :sob:
+
+// Background image picker
+document.getElementById("imageForm").addEventListener("submit", function(event) {
     event.preventDefault();
     const fileInput = document.getElementById("bgImage");
     if (fileInput.files && fileInput.files[0]) {

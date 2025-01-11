@@ -71,8 +71,11 @@
             </form>
             <hr>
             <form id="imageForm">
-              <label for="bgImage">Or upload an image:</label>
-              <input type="file" id="bgImage" name="bgImage" accept="image/*">
+              <label for="imageUpload">Or upload an image:</label>
+              <input type="file" id="imageUpload" class="file-upload" name="fileUpload" accept="image/*" style="display: none;">
+              <button type="button" id="imageUploadButton" class="btn btn-primary">Choose Image</button>
+              <span id="fileNameDisplay" style="margin-left: 10px;">No file chosen</span> <br/>
+
               <p><button type="submit" class="btn btn-success">Set Image</button></p>
             </form>
           </div>
