@@ -4,13 +4,14 @@
   <title>Study Helper</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="icon" type="image/x-icon" href="images/study.ico">
+  <script type="text/javascript" src="script.js" defer></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<!-- The top navigation bar -->
 <div>
   <nav class="navbar navbar-expand-sm navbar-dark fixed-top" id = "myNavbar">
     <a class="navbar-brand" href="mainpage.html">Study Helper</a>
@@ -31,13 +32,54 @@
   </nav>
 </div>
 
+<!--The side navigation bar -->
 <div id="mySidenav" class="sidenav">
-  <a href="#" id="timer"><img src="images/timer.png" width="50" height="50"></a>
-  <a href="#" id="blog"><img src="images/background.png" width="50" height="50"></a>
-  <a href="#" id="projects"><img src="images/writing.png" width="50" height="50"></a>
-  <a href="#" id="contact"><img src="images/to-do-list.png" width="50" height="50"></a>
-  <a href="#" id="music"><img src="images/musical-note.png" width="50" height="50"></a>
+  <a href="#" id="timer">
+    <img src="images/timer.png" width="50" height="50"/>
+  </a>
+  <a href="#" id="bgpic" data-toggle="modal" data-target="#myModal">
+    <img src="images/background.png.png" width="50" height="50">
+  </a>
+  <a href="#" id="notes">
+    <img src="images/writing.png" width="50" height="50"/>
+  </a>
+  <a href="#" id="list">
+    <img src="images/to-do-list.png" width="50" height="50"/>
+  </a>
+  <a href="#" id="music">
+    <img src="images/musical-note.png" width="50" height="50"/>
+  </a>
+</div>
 
+<!--The background select modal-->
+<div class="container">
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Background Color Picker</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form id="colorForm">
+            <label for="favcolor">Select your favorite color:</label>
+            <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+            <p><button type="submit" class="btn btn-success">Submit</button></p>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
