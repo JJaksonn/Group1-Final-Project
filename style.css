@@ -49,6 +49,21 @@ body
   left: 0;
 }
 
+#imageUploadButton
+{
+  background-color: #5d5de3;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#favcolor
+{
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 #timer
 {
   top: 50px;

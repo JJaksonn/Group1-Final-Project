@@ -65,9 +65,15 @@
 
         <!-- Modal body -->
         <div class="modal-body">
-          <form id="colorForm">
-            <label for="favcolor">Select your favorite color:</label>
-            <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+          <form id="bgForm">
+            <label for="favcolor">Select Background</label> <br/>
+            <input type="color" id="favcolor" name="favcolor" value="#ff0000"> <br/> <br/>
+
+            <input type="file" id="imageUpload" class="file-upload" name="fileUpload" accept="image/*" style="display: none;">
+            <button type="button" id="imageUploadButton" class="btn btn-primary">Choose Image</button>
+            <span id="fileNameDisplay" style="margin-left: 10px;">No file chosen</span> <br/>
+
+            <label for="imageUpload" class="custom-button"> </label> <br/>
             <p><button type="submit" class="btn btn-success">Submit</button></p>
           </form>
         </div>
