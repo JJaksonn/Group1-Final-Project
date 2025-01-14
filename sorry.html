@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Study Helper</title>
+    <link rel="icon" type="image/x-icon" href="images/study.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -14,27 +15,36 @@
 <body>
 
 <!--The top navigation bar -->
-<div>
-    <nav class="navbar navbar-expand-sm navbar-dark fixed-top" id = "myNavbar">
-        <a class="navbar-brand" href="mainpage.html">Study Helper</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">About us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="register.html">Register</a>
-            </li>
-        </ul>
-    </nav>
-</div>
+    <div>
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top" id = "myNavbar">
+            <a class="navbar-brand" href="mainpage.html">Study Helper</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sorry.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sorry.html">Register</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-<div class="jumbotron jumbotron-fluid" id = "sorryDiv"></div>
+    <div class = "d-flex justify-content-center align-items-center min-vh-100">
+        <div id="sorryDiv" class="text-center">
+            <h1 class="display-4">Sorry!</h1>
+            <p class="lead">We thought about doing accounts and all that. <br/>
+                But then we realized we'd probably have to work with databases for that to happen. <br/>
+                So we kind of gave up on the idea. <br/>
+                It still looked really good on the top navigation bar so we decided to keep it there.</p>
+        </div>
+    </div>
+
 
 </body>
 </html>
