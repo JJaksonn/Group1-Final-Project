@@ -45,24 +45,65 @@ document.getElementById("imageForm").addEventListener("submit", function(event) 
     }
   });
 
-function createNote()
-{
+//making draggable items
+function dragElement(elmnt, header) {
+    let xpos = 0, ypos = 0;
+
+    header.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+
+        xpos = e.clientX - elmnt.offsetLeft;
+        ypos = e.clientY - elmnt.offsetTop;
+
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+
+        const deltaX = e.clientX - xpos;
+        const deltaY = e.clientY - ypos;
+
+        elmnt.style.left = deltaX + "px";
+        elmnt.style.top = deltaY + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+//spawning in notes
+function createNote() {
     const note = document.createElement("div");
-    //adding the classes for functionality and design
     note.classList.add("note");
 
-    //setting the notes position making it moveable and editable
-    note.contentEditable = "true";
-    note.innerText = "Note...";
+    const noteHeader = document.createElement("div");
+    noteHeader.classList.add("noteHeader");
+    noteHeader.innerHTML = `Note:
+    <hr width = 100% color = black /> `;
+
+
+    const noteContent = document.createElement("div");
+    noteContent.contentEditable = "true";
+    noteContent.innerText = "Note...";
+
+    note.appendChild(noteHeader);
+    note.appendChild(noteContent);
+
     note.style.position = "absolute";
     note.style.left = "50%";
     note.style.top = "50%";
     note.style.transform = "translate(-50%, -50%)";
-    note.draggable = true;
+
+    dragElement(note, noteHeader);
 
     document.getElementById("notesContainer").appendChild(note);
 }
 
 document.getElementById("noteBtn").addEventListener("click", createNote);
-
-
