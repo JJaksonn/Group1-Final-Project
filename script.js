@@ -1,16 +1,17 @@
+
+const fileInput = document.getElementById("imageUpload");
+const imageButton = document.getElementById("imageUploadButton");
+const fileNameDisplay = document.getElementById("fileNameDisplay");
+
 // Background color picker
-document.getElementById("colorForm").addEventListener("submit", function(event) {
+document.getElementById("colorForm").addEventListener("submit", function(event)
+{
     event.preventDefault();
     const selectedColor = document.getElementById("favcolor").value;
     document.body.style.backgroundImage = "none";
     document.body.style.backgroundColor = selectedColor;
     $('#bgModal').modal('hide');
-  });
-
-
-const fileInput = document.getElementById("imageUpload");
-const imageButton = document.getElementById("imageUploadButton");
-const fileNameDisplay = document.getElementById("fileNameDisplay");
+});
 
 
 imageButton.addEventListener("click", function() {
@@ -43,3 +44,25 @@ document.getElementById("imageForm").addEventListener("submit", function(event) 
       $('#bgModal').modal('hide');
     }
   });
+
+function createNote()
+{
+    const note = document.createElement("div");
+    //adding the classes for functionality and design
+    note.classList.add("note");
+
+    //setting the notes position making it moveable and editable
+    note.contentEditable = "true";
+    note.innerText = "Note...";
+    note.style.position = "absolute";
+    note.style.left = "50%";
+    note.style.top = "50%";
+    note.style.transform = "translate(-50%, -50%)";
+    note.draggable = true;
+
+    document.getElementById("notesContainer").appendChild(note);
+}
+
+document.getElementById("noteBtn").addEventListener("click", createNote);
+
+
