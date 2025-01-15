@@ -31,7 +31,7 @@ fileInput.addEventListener("change", function() {
 // Background image picker
 document.getElementById("imageForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    const fileInput = document.getElementById("bgImage");
+    const fileInput = document.getElementById("imageUpload");
     if (fileInput.files && fileInput.files[0]) {
       const reader = new FileReader();
       reader.onload = function(e) {
