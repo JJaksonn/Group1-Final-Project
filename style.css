@@ -5,6 +5,12 @@ body
   margin: 0;
 }
 
+img
+{
+  height: 50px;
+  width: 50px;
+}
+
 #noteBtn {
   background-color: rgba(0,0,0,0);
   border: none;
@@ -92,6 +98,22 @@ body
 #mySidenav a:hover
 {
   left: 0;
+}
+
+#trashDiv a
+{
+  transition: 0.3s;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#trashDiv a:hover
+{
+  background-image: radial-gradient(red, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0.6), rgba(255, 255, 255, 0.1));
+  border: none;
 }
 
 #imageUploadButton

@@ -45,13 +45,15 @@ document.getElementById("imageForm").addEventListener("submit", function(event) 
     }
   });
 
-//making draggable items
-function dragElement(elmnt, header) {
+//making draggable items and deletable
+function dragElement(elmnt, header)
+{
     let xpos = 0, ypos = 0;
 
     header.onmousedown = dragMouseDown;
 
-    function dragMouseDown(e) {
+    function dragMouseDown(e)
+    {
         e = e || window.event;
         e.preventDefault();
 
@@ -62,7 +64,8 @@ function dragElement(elmnt, header) {
         document.onmousemove = elementDrag;
     }
 
-    function elementDrag(e) {
+    function elementDrag(e)
+    {
         e = e || window.event;
         e.preventDefault();
 
@@ -73,11 +76,27 @@ function dragElement(elmnt, header) {
         elmnt.style.top = deltaY + "px";
     }
 
-    function closeDragElement() {
+    function closeDragElement(e)
+    {
         document.onmouseup = null;
         document.onmousemove = null;
+
+        // Detect if the element overlaps with the trash button
+        const trashDiv = document.getElementById("trashDiv");
+        const trashRect = trashDiv.getBoundingClientRect();
+        const elmntRect = elmnt.getBoundingClientRect();
+
+        if (elmntRect.left < trashRect.right &&
+            elmntRect.right > trashRect.left &&
+            elmntRect.top < trashRect.bottom &&
+            elmntRect.bottom > trashRect.top)
+        {
+            elmnt.remove();
+            header.remove();
+        }
     }
 }
+
 //spawning in notes
 function createNote() {
     const note = document.createElement("div");
