@@ -84,7 +84,7 @@ function dragElement(elmnt, header)
         // Detect if the element overlaps with the trash button
         const trashDiv = document.getElementById("trashDiv");
         const trashRect = trashDiv.getBoundingClientRect();
-        const elmntRect = elmnt.getBoundingClientRect();
+        const elmntRect = header.getBoundingClientRect();
 
         if (elmntRect.left < trashRect.right &&
             elmntRect.right > trashRect.left &&
