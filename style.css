@@ -100,6 +100,13 @@ img
   left: 0;
 }
 
+#trashDiv
+{
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+}
+
 #trashDiv a
 {
   transition: 0.3s;
