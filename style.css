@@ -11,19 +11,28 @@ img
   width: 50px;
 }
 
-#noteBtn {
+#noteBtn
+{
   background-color: rgba(0,0,0,0);
   border: none;
 }
 
-#notesContainer {
+#listBtn
+{
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+#notesContainer
+{
   z-index: 9;
   background-color: #f1f1f1;
   border: 1px solid #d3d3d3;
   text-align: center;
 }
 
-.noteHeader {
+.noteHeader
+{
   padding: 10px;
   cursor: move;
   background-color: rgba(0,0,0,0);
@@ -31,7 +40,8 @@ img
   border-radius: 8px 8px 0 0;
 }
 
-.note {
+.note
+{
   position: absolute;
   width: 200px;
   background-color: #fffa91;
@@ -42,6 +52,56 @@ img
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   display: inline-block;
   overflow: auto;
+}
+
+.listHeader
+{
+  padding: 10px;
+  cursor: move;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.TDList
+{
+  position: absolute;
+  width: 300px;
+  background-color: #fffa91;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  overflow: auto;
+}
+
+.task
+{
+  border: 1px solid #1f3b73;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.listEditBtn, .listDeleteBtn
+{
+  float: right;
+  color:crimson;
+  cursor: pointer;
+  margin: 3px 5px;
+  border: none;
+  padding: 3px 3px;
+  background: none;
+}
+
+.completed
+{
+  text-decoration: line-through;
+  color: gray;
+  border: 1px solid gray;
 }
 
 #sorryDiv

@@ -98,7 +98,8 @@ function dragElement(elmnt, header)
 }
 
 //spawning in notes
-function createNote() {
+function createNote()
+{
     const note = document.createElement("div");
     note.classList.add("note");
 
@@ -124,5 +125,94 @@ function createNote() {
 
     document.getElementById("notesContainer").appendChild(note);
 }
-
 document.getElementById("noteBtn").addEventListener("click", createNote);
+
+//making to do lists
+function createTDLists()
+{
+    const TDList = document.createElement("div");
+    TDList.classList.add("TDList");
+
+    const listHeader = document.createElement("div");
+    listHeader.classList.add("listHeader");
+    listHeader.innerHTML = `To Do:
+    <hr width="100%" color="black" />`;
+
+    const listContent = document.createElement("div");
+    listContent.innerHTML = `
+        <div id="todoForm">
+            <input
+                type="text"
+                class="inputItem"
+                name="listInputBox"
+                placeholder="Add Task"/>
+
+            <button class="ListInputBtn">Add</button>
+        </div>
+        <h4>Task List</h4>
+        <ul class="listContainer"></ul>`;
+
+    TDList.appendChild(listHeader);
+    TDList.appendChild(listContent);
+
+    TDList.style.position = "absolute";
+    TDList.style.left = "50%";
+    TDList.style.top = "50%";
+    TDList.style.transform = "translate(-50%, -50%)";
+
+    dragElement(TDList, listHeader);
+
+    const inputBox = listContent.querySelector(".inputItem");
+    const listContainer = listContent.querySelector(".listContainer");
+    const addButton = listContent.querySelector(".ListInputBtn");
+
+    addButton.addEventListener("click", function () {
+        addTask(inputBox, listContainer);
+    });
+
+    document.getElementById("notesContainer").appendChild(TDList);
+}
+document.getElementById("listBtn").addEventListener("click", createTDLists);
+
+
+//all the code needed for the to do lists
+const inputBox = document.getElementById("listInputBox");
+const listContainer = document.getElementById("listContainer");
+function addTask(inputBox, listContainer) {
+    const task = inputBox.value.trim();
+    if (!task) {
+        alert("Please write down a task");
+        return;
+    }
+
+    const li = document.createElement("li");
+    li.classList.add("task");
+    li.innerHTML = `
+    <label>
+        <input type="checkbox">
+        <span>${task}</span>
+    </label>
+    <span class="listEditBtn">Edit</span>
+    <span class="listDeleteBtn">Delete</span>`;
+
+    listContainer.appendChild(li);
+    inputBox.value = "";
+
+    const checkbox = li.querySelector("input");
+    checkbox.addEventListener("click", function () {
+        li.classList.toggle("completed", checkbox.checked);
+    });
+
+    const deleteBtn = li.querySelector(".listDeleteBtn");
+    deleteBtn.addEventListener("click", function () {
+        listContainer.removeChild(li);
+    });
+
+    const editBtn = li.querySelector(".listEditBtn");
+    editBtn.addEventListener("click", function () {
+        const newTask = prompt("Edit Task:", task);
+        if (newTask !== null && newTask.trim() !== "") {
+            li.querySelector("span").textContent = newTask.trim();
+        }
+    });
+}
