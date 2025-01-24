@@ -1,5 +1,4 @@
-
-const fileInput = document.getElementById("imageUpload");
+const fileinput = document.getElementById("imageUpload");
 const imageButton = document.getElementById("imageUploadButton");
 const fileNameDisplay = document.getElementById("fileNameDisplay");
 
@@ -15,24 +14,24 @@ document.getElementById("colorForm").addEventListener("submit", function(event)
 
 
 imageButton.addEventListener("click", function() {
-    fileInput.click();
+    fileinput.click();
 });
 
 
-fileInput.addEventListener("change", function() {
-    if (fileInput.files.length > 0) {
-        fileNameDisplay.textContent = fileInput.files[0].name;
+fileinput.addEventListener("change", function() {
+    if (fileinput.files.length > 0) {
+        fileNameDisplay.textContent = fileinput.files[0].name;
     } else {
         fileNameDisplay.textContent = "No file chosen";
     }
 });
-// all of the above code was just so I could make the image upload button look good :sob:
+// all of the above code was just so we could make the image upload button look good :sob:
 
 // Background image picker
 document.getElementById("imageForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    const fileInput = document.getElementById("imageUpload");
-    if (fileInput.files && fileInput.files[0]) {
+    const fileinput = document.getElementById("imageUpload");
+    if (fileinput.files && fileinput.files[0]) {
       const reader = new FileReader();
       reader.onload = function(e) {
         document.body.style.backgroundImage = `url(${e.target.result})`;
@@ -40,7 +39,7 @@ document.getElementById("imageForm").addEventListener("submit", function(event) 
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundPosition = "center";
       };
-      reader.readAsDataURL(fileInput.files[0]);
+      reader.readAsDataURL(fileinput.files[0]);
       $('#bgModal').modal('hide');
     }
   });
@@ -96,6 +95,7 @@ function dragElement(elmnt, header)
         }
     }
 }
+
 
 //spawning in notes
 function createNote()
@@ -216,3 +216,94 @@ function addTask(inputBox, listContainer) {
         }
     });
 }
+
+//the js for the music player
+const audio = document.getElementById('audio');
+const playBtn = document.querySelector('.play-btn');
+const progress = document.getElementById('progress');
+const currentTimeEl = document.getElementById('current-time');
+const durationEl = document.getElementById('duration');
+const fileInput = document.getElementById('fileInput');
+const player = document.getElementById('player');
+let isDragging = false;
+let offsetX, offsetY;
+//to check if the file is uploaded susccessfully
+fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const fileURL = URL.createObjectURL(file);
+        audio.src = fileURL;
+        playBtn.disabled = false; 
+        document.getElementById("status").innerHTML = "file uploaded";
+        const playIcon = document.getElementById('play-icon');
+        playIcon.src = 'images/play.png'; 
+        playIcon.alt = 'Play';
+    }
+});
+//the play pause function
+function playPause() {
+    const playIcon = document.getElementById('play-icon');
+    if (audio.paused) {
+        audio.play();
+        playIcon.src = 'images/pause.png'; // Set to the pause icon
+        playIcon.alt = 'Pause';
+    } else {
+        audio.pause();
+        playIcon.src = 'images/play.png'; // Set to the play icon
+        playIcon.alt = 'Play';
+    }
+}
+
+
+audio.addEventListener('timeupdate', updateProgress);
+
+function updateProgress() {
+    const { currentTime, duration } = audio;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+    currentTimeEl.textContent = formatTime(currentTime);
+    durationEl.textContent = formatTime(duration);
+}
+
+function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+player.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - player.offsetLeft;
+    offsetY = e.clientY - player.offsetTop;
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        player.style.left = `${e.clientX - offsetX}px`;
+        player.style.top = `${e.clientY - offsetY}px`;
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+function openPlayer() {
+    if (document.getElementById("player").style.visibility == 'visible') {
+        document.getElementById("player").style.visibility = 'hidden';
+    }
+    else {
+        document.getElementById("player").style.visibility = 'visible';
+    }
+}
+var elem = document.documentElement;
+function handlefullscreen(){
+    if(!document.fullscreenElement){
+        elem.requestFullscreen?.() || elem.webkitRequestFullscreen?.() || elem.msRequestFullscreen?.();
+    }
+    else{
+        document.exitFullscreen?.() || document.webkitExitFullscreen?.() || document.msExitFullscreen?.();
+    }
+}
+
+

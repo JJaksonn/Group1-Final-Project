@@ -33,26 +33,30 @@
       </li>
     </ul>
   </nav>
-
+  
+  
   <div id="mySidenav" class="sidenav">
-    <a href="#" id="timer" data-toggle="modal" data-target="#myModal">
+    <a id="timer" data-toggle="modal" data-target="#myModal">
       <img src="images/timer.png">
     </a>
-    <a href="#" id="bgpic" data-toggle="modal" data-target="#bgModal">
+    <a id="bgpic" data-toggle="modal" data-target="#bgModal">
       <img src="images/background.png">
     </a>
-    <a href="#" id="notes">
+    <a id="notes">
       <button id="noteBtn">
         <img src="images/writing.png">
       </button>
     </a>
-    <a href="#" id="list">
+    <a id="list">
       <button id="listBtn">
         <img src="images/to-do-list.png">
       </button>
     </a>
-    <a href="#" id="music">
+    <a id="music" onclick="openPlayer()">
       <img src="images/musical-note.png">
+    </a>
+    <a id="fullscreen" onclick="handlefullscreen()">
+      <img src="images/fullscreen.png">
     </a>
   </div>
 
@@ -102,6 +106,31 @@
 
         </div>
       </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center" class="d-flex align-items-center">
+    <div class="player-container" id="player" style="visibility: hidden;">
+      <div class="title">Mini Music Player</div>
+      <p id="status">   No File Was Chosen  </p>    
+      <div class="file-input-wrapper">
+          <label for="fileInput" class="file-input-label">Import Music</label>
+          <input type="file" id="fileInput" class="file-input" accept="audio/*">
+      </div>
+      <br><br> 
+      <center>         
+          <button class="play-btn" onclick="playPause()">
+              <img src="images/play.png" alt="Play" id="play-icon">
+          </button>
+      </center>
+      <br>       
+      <div class="progress-container">
+          <span id="current-time">0:00</span>
+          <div class="progress-bar">
+              <div class="progress" id="progress"></div>
+          </div>
+          <span id="duration">0:00</span>
+      </div>
+      <audio id="audio"></audio>
     </div>
   </div>
 </body>
