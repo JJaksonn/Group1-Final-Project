@@ -227,8 +227,9 @@ const fileInput = document.getElementById('fileInput');
 const player = document.getElementById('player');
 let isDragging = false;
 let offsetX, offsetY;
-//to check if the file is uploaded susccessfully
-fileInput.addEventListener('change', (event) => {
+//to check if the file is uploaded successfully
+fileInput.addEventListener('change', (event) =>
+{
     const file = event.target.files[0];
     if (file) {
         const fileURL = URL.createObjectURL(file);
@@ -241,7 +242,8 @@ fileInput.addEventListener('change', (event) => {
     }
 });
 //the play pause function
-function playPause() {
+function playPause()
+{
     const playIcon = document.getElementById('play-icon');
     if (audio.paused) {
         audio.play();
@@ -257,7 +259,8 @@ function playPause() {
 
 audio.addEventListener('timeupdate', updateProgress);
 
-function updateProgress() {
+function updateProgress()
+{
     const { currentTime, duration } = audio;
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
@@ -265,38 +268,46 @@ function updateProgress() {
     durationEl.textContent = formatTime(duration);
 }
 
-function formatTime(time) {
+function formatTime(time)
+{
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
-player.addEventListener('mousedown', (e) => {
+player.addEventListener('mousedown', (e) =>
+{
+    e = e || window.event;
+    e.preventDefault();
     isDragging = true;
     offsetX = e.clientX - player.offsetLeft;
     offsetY = e.clientY - player.offsetTop;
 });
 
 document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
+    if (isDragging)
+    {
         player.style.left = `${e.clientX - offsetX}px`;
         player.style.top = `${e.clientY - offsetY}px`;
     }
 });
 
-document.addEventListener('mouseup', () => {
+document.addEventListener('mouseup', () =>
+{
     isDragging = false;
 });
 
-function openPlayer() {
-    if (document.getElementById("player").style.visibility == 'visible') {
+function openPlayer()
+{
+    if (document.getElementById("player").style.visibility === 'visible') {
         document.getElementById("player").style.visibility = 'hidden';
     }
     else {
         document.getElementById("player").style.visibility = 'visible';
     }
 }
-var elem = document.documentElement;
+
+let elem = document.documentElement;
 function handlefullscreen(){
     if(!document.fullscreenElement){
         elem.requestFullscreen?.() || elem.webkitRequestFullscreen?.() || elem.msRequestFullscreen?.();
