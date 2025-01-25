@@ -309,10 +309,12 @@ function openPlayer()
 
 let elem = document.documentElement;
 function handlefullscreen(){
-    if(!document.fullscreenElement){
+    if(!document.fullscreenElement)
+    {
         elem.requestFullscreen?.() || elem.webkitRequestFullscreen?.() || elem.msRequestFullscreen?.();
     }
-    else{
+    else
+    {
         document.exitFullscreen?.() || document.webkitExitFullscreen?.() || document.msExitFullscreen?.();
     }
 }
