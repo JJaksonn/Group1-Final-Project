@@ -5,17 +5,29 @@ body
   margin: 0;
   overflow: hidden;
 }
-#status{
+
+#status
+{
   background-color: white;
   color: #ff5e3a;
   font-weight:bold;
   padding: 5px;
   border-radius: 20px;
 }
+
 img
 {
   height: 50px;
   width: 50px;
+}
+
+#introDiv
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #noteBtn
