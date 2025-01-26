@@ -21,6 +21,14 @@ img
   width: 50px;
 }
 
+@font-face
+{
+  font-family: 'Prof';
+  src: url('fonts/IBMPlexSerif-Regular.ttf'); format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #introDiv
 {
   display: flex;
@@ -28,6 +36,7 @@ img
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: 'Prof';
 }
 
 #noteBtn
